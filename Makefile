@@ -1,4 +1,4 @@
-.PHONY: fix-sub-repo clean
+.PHONY: fix-sub-repo weight-files clean
 
 
 SUBREPO=GenerateStats normalising-flow-distribution path_dataset_generator
@@ -9,13 +9,14 @@ NETWORK_WEIGHTS_COMPRESS:=trained-weights.7z
 
 
 
-all: fix-sub-repo.git $(NETWORK_WEIGHTS)
+all: fix-sub-repo.git
 	@# echo $(SUBREPO)
 	@# echo $(DOT_GIT_TARGET)
 
 fix-sub-repo.git: $(DOT_GIT_TARGET)
 	cd "$</.." && git checkout .
 
+weight-files: $(NETWORK_WEIGHTS)
 
 # link .git to ..git (originally need to rename to ..git because GIT ignores .git)
 # this is just a quick and dirty way to track multiple git repositories
