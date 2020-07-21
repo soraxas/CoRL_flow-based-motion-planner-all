@@ -1,3 +1,24 @@
+# Populating sub repository
+
+This repository contain **3 nested repos**, with some clever dirty tricks.
+
+Before anything would work, run
+```sh
+make
+```
+to populate all of the nested repositories, or
+```sh
+make clean
+```
+to cleanup and revert the previous operation.
+
+Run
+```sh
+make weight-files
+```
+to download and extracts the flow-based distribution trained weights into `normalising-flow-distribution/`.
+
+
 ## Generating runtime stats
 
 - Folder:  `GenerateStats/`
