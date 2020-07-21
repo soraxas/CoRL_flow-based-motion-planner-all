@@ -33,7 +33,7 @@ normalising-flow-distribution/$(NETWORK_WEIGHTS_COMPRESS):
 
 clean:
 	rm -rf $(DOT_GIT_TARGET)
-	echo $(SUBREPO) | xargs -n1 -I_ find _ -maxdepth 1 -mindepth 1 ! -name u \
+	echo $(SUBREPO) | xargs -n1 echo | xargs -I_ find _ -maxdepth 1 -mindepth 1 ! -name u \
 		! -name ..git -exec rm -rf {} \;
 
 clean_weights:
