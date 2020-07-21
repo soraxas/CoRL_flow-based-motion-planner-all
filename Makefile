@@ -14,7 +14,6 @@ all: fix-sub-repo.git
 	@# echo $(DOT_GIT_TARGET)
 
 fix-sub-repo.git: $(DOT_GIT_TARGET)
-	cd "$</.." && git checkout .
 
 weight-files: $(NETWORK_WEIGHTS)
 
@@ -22,6 +21,7 @@ weight-files: $(NETWORK_WEIGHTS)
 # this is just a quick and dirty way to track multiple git repositories
 %/.git: %/..git
 	ln -s ..git $@
+	cd "$</.." && git checkout .
 
 
 $(NETWORK_WEIGHTS): normalising-flow-distribution/$(NETWORK_WEIGHTS_COMPRESS)
